@@ -1,0 +1,69 @@
+//
+//  PrefixHeader.pch
+//  CRWB
+//
+//  Created by CR-IOS on 16/3/2.
+//  Copyright © 2016年 CR-IOS. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+#include "sysConfig.h"
+#import "UIView+AutoLayout.h"
+#import "JSONModel.h"
+#import "AFHTTPSessionManager.h"
+//SDWebIMage
+#import "UIImageView+WebCache.h"
+#import "UIColor+Helper.h"
+#import "MJRefresh.h"
+#import "MBProgressHUD.h"
+#import "NSString+Helper.h"
+#import "LocalData.h"
+#import "IQKeyboardManager.h"
+#import "MBProgressHUD+Add.h"
+#import "Utils.h"
+//#import "EMSDK.h"
+//#import "EaseUI.h"
+//#import "IEMChatManager.h"
+#import "UIImage+Helper.h"
+//#import "XMNetworking.h"
+
+#import "IQKeyboardReturnKeyHandler.h"
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#define xmlDictArray [[NSUserDefaults standardUserDefaults] objectForKey:@"xmlDict"]
+#define SHOW_ALERT(msg) UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];\
+[alert show];\
+
+#define USER_D [NSUserDefaults standardUserDefaults]
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define SeparatorLineRGB [UIColor colorWithRed:0.80f green:0.80f blue:0.80f alpha:1.00f]
+//#define SeparatorChatLineRGB [UIColor colorWithRed:0.80f green:0.80f blue:0.80f alpha:1.00f]
+
+/* 加载图片 */
+#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:ext]]
+/* 定义Image对象 */
+#define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]
+
+/* 判定字符串是否为空 */
+#define STRING_ISNIL(__POINTER) (__POINTER == nil || [__POINTER isEqualToString:@""] || [__POINTER isEqualToString:@"(null)"] || [__POINTER isEqualToString:@"null"] || [__POINTER isEqualToString:@"(NULL)"] || [__POINTER isEqualToString:@"NULL"] || [__POINTER isEqualToString:@"<null>"])?YES:NO
+
+#define STRING_ISNOTNIL(__POINTER) (__POINTER == nil || [__POINTER isEqualToString:@""] || [__POINTER isEqualToString:@"(null)"] || [__POINTER isEqualToString:@"null"]|| [__POINTER isEqualToString:@"(NULL)"] || [__POINTER isEqualToString:@"NULL"] || [__POINTER isEqualToString:@"<null>"] || __POINTER == NULL || [__POINTER isKindOfClass:[NSNull class]] || [[__POINTER stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0)?NO:YES
+
+#endif
+
+#endif
